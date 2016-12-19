@@ -2,19 +2,20 @@
 
 
 require_once "request.php";
+include "form.php";
 
 $request = new Request();
 
-if($request->hasGet("page")) {
 
-  echo 'Page number: '.$request->get('page');
 
-} else if($request->hasGet('song')) {
+if($request->hasPost("firstname")){
 
-  echo "Playing song: ".$request->get('song');
+    $name = $request->post("firstname");
+    echo "This is your first name: $name";
+}
 
-} else {
+if($request->hasPost("lastname")){
 
-  echo "No datas available main!!!!!!!";
-
+    $lastName = $request->post("lastname");
+    echo "This is your last name: $lastName";
 }
